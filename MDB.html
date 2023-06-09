@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title> Monitoring Dashboard - Developed By Yash Shah </title>
+  <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- CSS Code Resource -->
+  <link href="https://mcqg7tb-yjgl2414mz73fvhqnjg1.pub.sfmc-content.com/o0p2cgbwyl1" rel="stylesheet">
+  <!--   Core JS Files   -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <!-- Chart JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <!-- Primary Script For Chart And Data Formatting -->
+
+</head>
+
+<body class="">
+
+  <div class="data_field" align="center">
+
+    <select id="brand_code" name="brand_code" required="" autocomplete="off">
+      <option value="">Select Business Unit</option>
+      <option value="7299504">Armani</option>
+      <option value="7326543">ACDPro Skin B2B</option>
+      <option value="7327051">Biolage</option>
+      <option value="518002840">Biolage Professional</option>
+      <option value="7230758">Carol's Daughter</option>
+      <option value="7307327">CeraVe</option>
+      <option value="7202480">Dermablend</option>
+      <option value="7292818">Essie Consumer</option>
+      <option value="7292816">Garnier</option>
+      <option value="7315516">Hair.com</option>
+      <option value="7290682">IT Cosmetics</option>
+      <option value="7202504">Kérastase</option>
+      <option value="7298601">Kiehls</option>
+      <option value="7299494">Lancome</option>
+      <option value="7205741">LaRoche-Posay</option>
+      <option value="7290681">Level Loyalty</option>
+      <option value="7233595">L'Oreal Paris</option>
+      <option value="7276740">L'Oreal Professionnel</option>
+      <option value="7328388">L'Oreal Professionnel B2B</option>
+      <option value="7276313">Matrix Professional</option>
+      <option value="7206710">Matrix USA</option>
+      <option value="7292817">Maybelline</option>
+      <option value="7230748">Mizani</option>
+      <option value="7328389">Mizani Professional</option>
+      <option value="7206597">NYX Cosmetics</option>
+      <option value="7207718">Pureology USA</option>
+      <option value="7288649">Pureology Professional</option>
+      <option value="7207717">Redken</option>
+      <option value="7328390">Redken Professional</option>
+      <option value="7214679">Shu Uemura Hair USA</option>
+      <option value="7202503">SkinCeuticals USA</option>
+      <option value="7299506">SalonCentric</option>
+      <option value="7299503">Urban Decay</option>
+      <option value="7205419">Vichy USA</option>
+      <option value="7299505">YSL</option>
+    </select>
+
+  </div>
+
+
+  <div class="wrapper">
+    <div class="main-panel">
+      <div class="content">
+        <div class="row">
+          <div class="col-sm" align="left">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <h3 class="card-category">EMAIL</h3>
+                    <h2 class="card-title">Performance</h2>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                      <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                        <input type="radio" name="options" checked>
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Sent</span> <span
+                          class="d-block d-sm-none"> <i class="tim-icons icon-single-02"></i> </span> </label>
+                      <label class="btn btn-sm btn-primary btn-simple" id="1">
+                        <input type="radio" class="d-none d-sm-none" name="options">
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Open Rate</span> <span
+                          class="d-block d-sm-none"> <i class="tim-icons icon-gift-2"></i> </span> </label>
+                      <label class="btn btn-sm btn-primary btn-simple" id="2">
+                        <input type="radio" class="d-none" name="options">
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Click Rate</span> <span
+                          class="d-block d-sm-none"> <i class="tim-icons icon-tap-02"></i> </span> </label>
+                      <label class="btn btn-sm btn-primary btn-simple" id="3">
+                        <input type="radio" class="d-none" name="options">
+                        <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Bounces</span> <span
+                          class="d-block d-sm-none"> <i class="tim-icons icon-tap-02"></i> </span> </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-area" id="graph-container">
+                  <canvas id="email_stats"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <h3 class="card-category">EMAIL</h3>
+                    <h2 class="card-title">Deployments</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-area chart-area2">
+                  <table class="table-striped border-success" id="mytable2" width="100%">
+                    <tr>
+                      <th data-field="id"> <span class="text-success"> EmailName </span> </th>
+                      <th data-field="date"> <span class="text-success"> DECount </span> </th>
+                      <th data-field="date"> <span class="text-success"> TotalSends </span> </th>
+                      <th data-field="date"> <span class="text-success"> SendDate </span> </th>
+                      <th data-field="date"> <span class="text-success"> Deployed_via </span> </th>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-sm">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <h3 class="card-category">ERRORED/PAUSED</h3>
+                    <h2 class="card-title">Automations</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-area chart-area2">
+                  <table class="table-striped border-success" id="mytable" width="100%">
+                    <tr>
+                      <th data-field="id"> <span class="text-success"> Name </span> </th>
+                      <th data-field="date"> <span class="text-success"> ModifiedDate </span> </th>
+                      <th data-field="date"> <span class="text-success"> Status </span> </th>
+                      <th data-field="date"> <span class="text-success"> LastRunTime </span> </th>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <h3 class="card-category">Journey</h3>
+                    <h2 class="card-title">Sends</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-area chart-area2">
+                  <table class="table-striped border-success" id="mytable3" width="100%">
+                    <tr>
+                      <th data-field="id"> <span class="text-success"> JourneyName </span> </th>
+                      <th data-field="id"> <span class="text-success"> EmailName </span> </th>
+                      <th data-field="date"> <span class="text-success"> TotalSends </span> </th>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div align="right" style="padding-right: 10px;">
+    <h3> for L'Oréal </h3>
+  </div>
+
+
+  <script type="text/javascript">
+    
+    $('#brand_code').change(function () {
+      debugger;
+      var selectedValue1 = $('#brand_code').val();
+      // FETCHING DATA FROM JSON FILE
+      $.ajax({
+        //Chart Data Code Resource
+        url: 'https://mcqg7tb-yjgl2414mz73fvhqnjg1.pub.sfmc-content.com/e51weno3fho',
+        type: 'POST',
+        cors: true ,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+        data: {
+          brand_code: selectedValue1
+        },
+        success: function (json) {
+          daily_obj_arr = json;
+          var extended_timeline = [];
+          for (var j = 0; j < daily_obj_arr.length; ++j) {
+            var getName = daily_obj_arr[j].emailname;
+            var newName = getName.substring(0, 4);
+            extended_timeline.push(newName.toUpperCase());
+          }
+          /* Map Data Extension Values By Type For Chart Display */
+          var clicks = daily_obj_arr.map(function (a) {
+            var newclick = (a.Clicks / a.Sent) * 100;
+            var clickrate = newclick.toFixed(2);
+            return clickrate;
+          });
+          var sent = daily_obj_arr.map(function (a) {
+            return parseInt(a.Sent);
+          });
+          var opens = daily_obj_arr.map(function (a) {
+            var newopen = (a.Opens / a.Sent) * 100;
+            var openrate = newopen.toFixed(2);
+            return openrate;
+          });
+          var bounces = daily_obj_arr.map(function (a) {
+            return parseInt(a.Bounces);
+          });
+          /* Functions For Styling and Formatting Chart */
+          demo = {
+            initPickColor: function () {
+              $('.pick-class-label').click(function () {
+                var new_class = $(this).attr('new-class');
+                var old_class = $('#display-buttons').attr('data-class');
+                var display_div = $('#display-buttons');
+                if (display_div.length) {
+                  var display_buttons = display_div.find('.btn');
+                  display_buttons.removeClass(old_class);
+                  display_buttons.addClass(new_class);
+                  display_div.attr('data-class', new_class);
+                }
+              });
+            },
+            /* Initialize Chart */
+            initDashboardPageCharts: function () {
+              gradientChartOptionsConfigurationWithTooltipPurple = {
+                maintainAspectRatio: false,
+                legend: {
+                  display: false
+                },
+                tooltips: {
+                  backgroundColor: '#f5f5f5',
+                  titleFontColor: '#333',
+                  bodyFontColor: '#666',
+                  bodySpacing: 4,
+                  xPadding: 12,
+                  mode: "nearest",
+                  intersect: 0,
+                  position: "nearest"
+                },
+                responsive: true,
+                scales: {
+                  yAxes: [{
+                    barPercentage: 1.6,
+                    gridLines: {
+                      drawBorder: false,
+                      color: 'rgba(29,140,248,0.0)',
+                      zeroLineColor: "transparent",
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 100,
+                      padding: 20,
+                      fontColor: "#9a9a9a"
+                    }
+                  }],
+                  xAxes: [{
+                    barPercentage: 1.6,
+                    gridLines: {
+                      drawBorder: false,
+                      color: 'rgba(225,78,202,0.1)',
+                      zeroLineColor: "transparent",
+                    },
+                    ticks: {
+                      padding: 20,
+                      fontColor: "#9a9a9a"
+                    }
+                  }]
+                }
+              };
+              var chart_labels = extended_timeline;
+              var chart_data = sent;
+              $('#email_stats').remove(); // this is my <canvas> element
+              $('#graph-container').append('<canvas id="email_stats"><canvas>');
+              var ctx = $("#email_stats")[0].getContext('2d');
+              var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+              gradientStroke.addColorStop(1, 'rgba(72,72,176,0.1)');
+              gradientStroke.addColorStop(0.4, 'rgba(108,102,251,0.3)');
+              gradientStroke.addColorStop(0, 'rgba(119,52,169,0)'); //colors
+              var config = {
+                type: 'line',
+                data: {
+                  labels: chart_labels,
+                  datasets: [{
+                    label: "Sent",
+                    fill: true,
+                    backgroundColor: gradientStroke,
+                    borderColor: '#6C66FB',
+                    borderWidth: 2,
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    pointBackgroundColor: '#6C66FB',
+                    pointBorderColor: 'rgba(255,255,255,0)',
+                    pointHoverBackgroundColor: '#6C66FB',
+                    pointBorderWidth: 20,
+                    pointHoverRadius: 4,
+                    pointHoverBorderWidth: 15,
+                    pointRadius: 4,
+                    data: chart_data,
+                  }]
+                },
+                options: gradientChartOptionsConfigurationWithTooltipPurple,
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                      min: Math.min.apply(this, chart_data),
+                      max: Math.max.apply(this, chart_data),
+                      stepSize: 5
+                    }
+                  }]
+                }
+              };
+              /* Update Chart Data When New Type Is Selected */
+              var myChartData = new Chart(ctx, config);
+              $("#0").click(function () {
+                var data = myChartData.config.data;
+                data.datasets[0].data = sent;
+                data.datasets[0].label = "Sent";
+                data.labels = chart_labels;
+                myChartData.update();
+              });
+              $("#1").click(function () {
+                var chart_data = opens;
+                var data = myChartData.config.data;
+                data.datasets[0].data = chart_data;
+                data.datasets[0].label = "Open Rate";
+                data.labels = chart_labels;
+                myChartData.update();
+              });
+
+              $("#2").click(function () {
+                var chart_data = clicks;
+                var data = myChartData.config.data;
+                data.datasets[0].data = chart_data;
+                data.datasets[0].label = "Click Rate";
+                data.labels = chart_labels;
+                myChartData.update();
+              });
+
+              $("#3").click(function () {
+                var chart_data = bounces;
+                var data = myChartData.config.data;
+                data.datasets[0].data = chart_data;
+                data.datasets[0].label = "Bounces";
+                data.labels = chart_labels;
+                myChartData.update();
+              });
+            }
+          };
+          /* Execute Chart Function */
+          demo.initDashboardPageCharts();
+        }
+      });
+    });
+
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $('#brand_code').change(function () {
+      debugger;
+      var selectedValue1 = $('#brand_code').val();
+      // FETCHING DATA FROM JSON FILE
+      $.ajax({
+        //Automation Data Code Resource
+        url: 'https://mcqg7tb-yjgl2414mz73fvhqnjg1.pub.sfmc-content.com/22rsrhcn1qp',
+        type: 'POST',
+        data: {
+          brand_code: selectedValue1
+        },
+        success: function (data) {
+
+          var automationData = '';
+
+          // ITERATING THROUGH OBJECTS
+          $.each(data, function (key, value) {
+            $("#mytable").find("tr:gt(0)").remove();
+            if (value.Status === -1) {
+              value.Status = "Error";
+            } else if (value.Status === 0) {
+              value.Status = "BuildingError";
+            } else if (value.Status === 1) {
+              value.Status = "Building";
+            } else if (value.Status === 2) {
+              value.Status = "Ready";
+            } else if (value.Status === 3) {
+              value.Status = "Running";
+            } else if (value.Status === 4) {
+              value.Status = "Paused";
+            } else if (value.Status === 5) {
+              value.Status = "Stopped";
+            } else if (value.Status === 6) {
+              value.Status = "Scheduled";
+            } else if (value.Status === 7) {
+              value.Status = "Awaiting Trigger";
+            } else if (value.Status === 8) {
+              value.Status = "Inactive Trigger";
+            } else {
+              value.Status = "Null";
+            }
+
+
+            //CONSTRUCTION OF ROWS HAVING
+            // DATA FROM JSON OBJECT
+            automationData += '<tr>';
+            automationData += '<td style="padding-right: 15px;">' +
+              value.Name + '</td>';
+
+            automationData += '<td style="padding-right: 15px;">' +
+              value.ModifiedDate + '</td>';
+            automationData += '<td style="padding-right: 15px;">' +
+              value.Status + '</td>';
+            automationData += '<td>' +
+              value.LastRunTime + '</td>';
+
+            automationData += '</tr>';
+          });
+
+          //INSERTING ROWS INTO TABLE 
+          $('#mytable').append(automationData);
+
+        }
+      });
+
+    });
+
+  </script>
+
+  <script type="text/javascript">
+    $('#brand_code').change(function () {
+
+      var selectedValue1 = $('#brand_code').val();
+      
+      // FETCHING DATA FROM JSON FILE
+      $.ajax({
+        //Email Deployment Data Code Resource
+        url: 'https://mcqg7tb-yjgl2414mz73fvhqnjg1.pub.sfmc-content.com/nao1vd0cf3a',
+        type: 'POST',
+        data: {
+          brand_code: selectedValue1
+        },
+        success: function (data) {
+          var emailData = '';
+
+          if (data.length > 0) {
+
+            // ITERATING THROUGH OBJECTS
+            $.each(data, function (key, value) {
+
+            $("#mytable2").find("tr:gt(0)").remove();
+            var formatter = new Intl.DateTimeFormat("en", {
+              month: "short",
+              day: "numeric"
+            }),
+              NewDate = formatter.format(new Date(value.SendDate));
+
+            //CONSTRUCTION OF ROWS HAVING
+            // DATA FROM JSON OBJECT
+            emailData += '<tr class="dep_row">';
+
+            emailData += '<td style="padding-right: 15px;">' +
+              value.EmailName + '</td>';
+
+            emailData += '<td style="padding-right: 15px;">' +
+              value.DECount + '</td>';
+
+            emailData += '<td style="padding-right: 15px;">' +
+              value.TotalSends + '</td>';
+
+            emailData += '<td style="padding-right: 15px;">' +
+              NewDate + '</td>';
+
+            emailData += '<td>' +
+              value.Deployed_via + '</td>';
+
+            emailData += '</tr>';
+          });
+
+            //INSERTING ROWS INTO TABLE 
+            $('#mytable2').append(emailData);
+          } else{
+            $('.dep_row').remove();
+          }
+        }
+      });
+
+    });
+
+  </script>
+  <script type="text/javascript">
+    $('#brand_code').change(function () {
+
+      var selectedValue1 = $('#brand_code').val();
+      // FETCHING DATA FROM JSON FILE
+      $.ajax({
+        //Journey Data Code Resource
+        url: 'https://mcqg7tb-yjgl2414mz73fvhqnjg1.pub.sfmc-content.com/ntwdz3x10se',
+        type: 'POST',
+        data: {
+          brand_code: selectedValue1
+        },
+        success: function (data) {
+          var journeyData = '';
+
+          // ITERATING THROUGH OBJECTS
+          $.each(data, function (key, value) {
+
+            $("#mytable3").find("tr:gt(0)").remove();
+
+
+            //CONSTRUCTION OF ROWS HAVING
+            // DATA FROM JSON OBJECT
+            journeyData += '<tr>';
+            journeyData += '<td style="padding-right: 15px;">' +
+              value.JourneyName + '</td>';
+            journeyData += '<td style="padding-right: 15px;">' +
+              value.EmailName + '</td>';
+
+            journeyData += '<td>' +
+              value.TotalSends + '</td>';
+
+            journeyData += '</tr>';
+          });
+
+          //INSERTING ROWS INTO TABLE 
+          $('#mytable3').append(journeyData);
+        }
+      });
+
+    });
+
+  </script>
+</body>
+
+</html>
